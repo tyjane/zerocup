@@ -6,5 +6,8 @@ urlpatterns = [
     # url(r'^$', 'mysite.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^$',views.startpage, name='startpage'),
+    url(r'^$', views.sign_in, name='sign_in'),
+    url(r'^personal_page/', views.personal_page, name='personal_page'),
+    url(r'^stories/', views.stories, name='stories'),
+    url(r'^post_story/', views.post_story, name='post_story'),
 ]

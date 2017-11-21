@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>personal page</title>
+        <link rel="stylesheet" href="{% static 'personal_page/personal_page.css' %}">
+        <script src="{% static "personal_page/personal_page.js" %}"></script>
+    </head>
+    <body>
+        <p>personal page</p>
+        <form action="/post_story/" method="get">
+            <p><input type="submit" class="b_button" value="Post your story"></p>
+        </form>
+        <form action="/stories/" method="get">
+            <p><input type="submit" class="b_button" value="view the stories"></p>
+        </form>
+    </body>
+</html>
