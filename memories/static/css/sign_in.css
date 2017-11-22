@@ -3,7 +3,7 @@ body{
 }
 /*main content*/
 #main_content{
-  background-image: url("bg.jpg" );
+  background-image: url("images/bg1.jpg" );
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;

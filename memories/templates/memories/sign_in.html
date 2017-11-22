@@ -4,16 +4,22 @@
     <head>
         <meta charset="utf-8">
         <title>Sign in</title>
-        <link rel="stylesheet" href="{% static 'sign_in/sign_in.css' %}">
-        <script src="{% static "sign_in/sign_in.js" %}"></script>
+        <link rel="stylesheet" href="{% static 'css/sign_in.css' %}">
+        <script src="{% static "js/sign_in.js" %}"></script>
     </head>
     <body>
+        <!-- 进入注册页面的按钮 你想想放在哪里 hhh -->
+        <form action="/sign_up/" method="get">
+            <input type="submit" value="Sign up.">
+        </form>
+
         <div id="main_content">
             <div id="main_left">
                 <h1 id="main_title">我有一壶酒， <br> 足以慰风尘。</h1>
                 <p id="main_page">这一路上，<br>我们走走停停，<br>看不同的风景，<br>赏不同的人。<br>现在，<br>我有酒，<br>你有故事吗？</p>
             </div>
             <div id="main_right">
+                <!-- 这里大概改一下吧，改成登陆的 -->
                 <p class="small_title">Username</p>
                 <input type="text" name="username" placeholder="Pick a username">
                 <p class="small_title">Email</p>
