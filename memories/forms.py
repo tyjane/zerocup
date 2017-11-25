@@ -4,3 +4,8 @@ class UserForm(forms.Form):
     name = forms.CharField()
     password = forms.CharField()
     email = forms.CharField()
+
+class MemoryForm(forms.Form):
+    title = forms.CharField()
+    # author = forms.CharField()
+    content = forms.CharField()

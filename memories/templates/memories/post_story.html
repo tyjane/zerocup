@@ -3,16 +3,26 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Post your story</title>
+        <title>Post your memory</title>
         <link rel="stylesheet" href="{% static 'css/post_story.css' %}">
         <script src="{% static "js/post_story.js" %}"></script>
     </head>
     <body>
         <p>post story</p>
-        <form action="/personal_page/" method="get">
-            <p><input type="submit" class="b_button" value="Post"></p>
+
+        <form action="/post_story/" method="post">
+            {% csrf_token %}
+            <ul>
+                <li>Title</li>
+                <input type="text" placeholder="Your name" name="title">
+                <li>Your memory</li>
+                <br/>
+                <textarea name="content" rows="8" cols="70"></textarea>
+            </ul>
+            <input type="submit" class="b_button" value="Post">
         </form>
-        <form action="/personal_page/" method="get">
+
+        <form action="/sign_in_and_personal_page/" method="get">
             <p><input type="submit" class="b_button" value="Back to your page"></p>
         </form>
     </body>

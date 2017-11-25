@@ -10,10 +10,10 @@
     <body>
         <p>sign up</p>
         <!-- form 里的 input 通过 name 属性传递其内部的信息给服务器  -->
-        <form class="" action="/" method="post">
+        <form class="" action="/sign_up/" method="post">
             {% csrf_token %}
             <p class="small_title">Username</p>
-            <input type="text" name="username" placeholder="Pick a username">
+            <input type="text" name="name" placeholder="Pick a username">
             <p class="small_title">Email</p>
             <input type="text" name="email" placeholder="you@example.com">
             <p class="small_title">Password</p>

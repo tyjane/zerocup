@@ -9,8 +9,17 @@
     </head>
     <body>
         <p>stories</p>
-        <form action="/personal_page/" method="get">
+
+        <div class="memories">
+            {% for memory in memories %}
+                <p>{{ memory.title }}</p>
+                <p>{{ memory.content }}</p>
+            {% endfor %}
+        </div>
+
+        <form action="/" method="get">
             <p><input type="submit" class="b_button" value="Back to your page"></p>
         </form>
+
     </body>
 </html>
