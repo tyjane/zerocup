@@ -7,5 +7,5 @@ class UserForm(forms.Form):
 
 class MemoryForm(forms.Form):
     title = forms.CharField()
-    # author = forms.CharField()
+    author = forms.CharField()
     content = forms.CharField()

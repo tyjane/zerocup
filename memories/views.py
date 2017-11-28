@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from .models import Memory
 from .forms import UserForm, MemoryForm
 from django.views.decorators.csrf import csrf_protect
+from django.utils import timezone
 
 # Create your views here.
 
@@ -17,14 +18,17 @@ def sign_in_and_personal_page(request):
             inputedData["password"] = request.POST.get("password", "")
             return render(request, 'memories/sign_in.html', {'inputedData': inputed})
         else:
-            user = authenticate(username=form.cleaned_data["name"], password=form.cleaned_data["password"])
+            user = authenticate(\
+                username=form.cleaned_data["name"],\
+                password=form.cleaned_data["password"])
             isUserExist = False
             if user is not None:
                 if user.is_active:
                     login(request, user)
                     isUserExist = True
             if isUserExist:
-                return render(request, 'memories/personal_page.html')
+                memories = Memory.objects.filter(author = request.user.username)
+                return render(request, 'memories/personal_page.html', {"memories": memories})
             else:
                 error = {"msg": "The name or password is incorrect."}
                 return render(request, 'memories/sign_in.html', error)
@@ -38,19 +42,28 @@ def sign_in_and_personal_page(request):
         if backToLogin:
             return render(request, 'memories/sign_in.html')
         else:
-            return render(request, 'memories/personal_page.html')
+            memories = Memory.objects.filter(author = request.user.username)
+            return render(request, 'memories/personal_page.html', {"memories": memories})
 
 def stories(request):
-    m = Memory.objects.all()
+    if request.GET.get("user_stories") == "My memories":
+        m = Memory.objects.filter(author = request.user.username)
+    else:
+        m = Memory.objects.all()
     return render(request, 'memories/stories.html', {'memories': m})
 
 def post_story(request):
     if request.method == 'POST':
         form = MemoryForm(request.POST)
         if form.is_valid():
-            m = Memory.objects.create(title = form.cleaned_data['title'], content = form.cleaned_data['content'])
+            m = Memory.objects.create(\
+                title = form.cleaned_data['title'],\
+                content = form.cleaned_data['content'],\
+                author = form.cleaned_data['author'])
             m.post()
-    return render(request, 'memories/post_story.html')
+    o = {}
+    o["author"] = request.user.username
+    return render(request, 'memories/post_story.html', o)
 
 def sign_up(request):
     if request.method == 'POST':

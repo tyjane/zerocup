@@ -18,5 +18,17 @@
         <form class="" action="/" method="get">
             <input type="submit" value="log out" name="_logout">
         </form>
+
+        <!-- TODO: 初赛之后做一个签到系统 -->
+        <!-- 但是可以先把图标之类的做好 -->
+
+        <div class="">
+            <form class="" action="stories" method="get">
+                <input type="submit" value="My memories" name="user_stories">
+            </form>
+            {% for memory in memories %}
+                <p>{{ memory.title }}</p>
+            {% endfor %}
+        </div>
     </body>
 </html>

@@ -18,11 +18,12 @@
                 <li>Your memory</li>
                 <br/>
                 <textarea name="content" rows="8" cols="70"></textarea>
+                <input type="text" name="author" value= {{ author }} style="display: none">
             </ul>
             <input type="submit" class="b_button" value="Post">
         </form>
 
-        <form action="/sign_in_and_personal_page/" method="get">
+        <form action="/" method="get">
             <p><input type="submit" class="b_button" value="Back to your page"></p>
         </form>
     </body>

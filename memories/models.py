@@ -1,16 +1,24 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.utils import timezone
 
-# Create your models here.
-
-# class User(models.Model):
-#     name = models.CharField(max_length=10)
-#     email = models.CharField(max_length=30)
-#     password = models.CharField(max_length=20)
-#     def register(self):
-#         self.save()
+# class MyUser(User):
+#     sign_in_times = models.PositiveIntegerField(default=0)
+#
+#     def sign_in():
+#         sign_in_times += 1
+#
+#     def is_sign_in_continuity():
+#         last_login_day = self.last_login.strftime("%d")
+#         now_day = timezone.now.strftime("%d")
+#         if now_day - last_login_day == 1:
+#             sign_in_times += 1
+#         else:
+#             sign_in_times = 0
 
 class Memory(models.Model):
     title = models.CharField(max_length=10)
     content = models.TextField()
+    author = models.CharField(max_length=10, null=True)
     def post(self):
         self.save()
