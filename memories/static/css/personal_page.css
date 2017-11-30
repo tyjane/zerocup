@@ -1,0 +1,57 @@
+.img-title {
+    margin-top: -22px;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+    .left-4 {
+        margin-left: 25%;
+    }
+}
+
+.bgi {
+    background-image: url('images/bg3.jpg');
+    width: 100%;
+    height: 100%;
+    margin-top: -12%;
+}
+
+.color-white {
+    color: white;
+}
+
+.color-black {
+    color: black;
+}
+
+
+.font-size {
+    font-size: 120%;
+}
+
+.white {
+    background-color: white;
+}
+
+.grey {
+    background-color: grey;
+}
+
+.img-footer {
+    margin-top: -22px;
+    width: 100%;
+    height: 100%;
+}
+
+.center {
+    margin: auto;
+}
+
+#a-size {
+    height: 10%;
+}
+
+.date {
+    float:right;display:inline;margin-right:10px;
+}

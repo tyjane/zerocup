@@ -9,3 +9,4 @@ class MemoryForm(forms.Form):
     title = forms.CharField()
     author = forms.CharField()
     content = forms.CharField()
+    post_time = forms.DateTimeField()

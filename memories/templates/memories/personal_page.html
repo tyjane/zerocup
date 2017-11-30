@@ -3,32 +3,104 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>personal page</title>
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/bootstrap-theme.min.css' %}" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/personal_page.css' %}">
-        <script src="{% static "js/personal_page.js" %}"></script>
+
     </head>
     <body>
-        <p>personal page</p>
-        <form action="/post_story/" method="get">
-            <p><input type="submit" class="b_button" value="Post your story"></p>
-        </form>
-        <form action="/stories/" method="get">
-            <p><input type="submit" class="b_button" value="view the stories"></p>
-        </form>
-        <form class="" action="/" method="get">
-            <input type="submit" value="log out" name="_logout">
-        </form>
+    <!-- 导航栏 -->
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Memories</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/post_story/">Post your story</a></li>
+                        <li><a href="/stories/">View the stories</a></li>
+                        <li><a href="/user_stories/">My memories</a></li>
+                        <li><a href="/log_out/">Log out</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+
+        <img src="{% static 'css/images/title.jpg' %}" alt="" class="img-title">
+
+        <div class="main-content bgi">
+            <div class="row">
+                <div class="col-md-2 col-sm-3">
+
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <h1 class="color-white">Self-introduction</h1>
+                    <p class="color-white font-size">It is really my honor to have this opportunity for a interview, I hope i can make a good performance today. I'm confident that I can succeed.
+　　Now i will introduce myself briefly ,I am 26 years old,born in Shandong province .I was graduated from qingdao university. my major is electronic.and i got my bachelor degree after my graduation in the year of 2003.I spend most of my time on study,i have passed CET4/6 . and i have acquired basic knowledge of my major during my school time.
+　　In July 2003, I begin work for a small private company as a technical support engineer in QingDao city.Because I'm capable of more responsibilities, so I decided to change my job.
+　　And in August 2004,I left QingDao to BeiJing and worked for a foreign enterprise as a automation software test engineer.</p>
+                </div>
+                <div class="col-md-4 col-sm-6 left-4">
+                    <h2 class="color-white">Photos</h2>
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <img src="{% static 'css/images/bg1.jpg' %}" alt="First slide">
+                            </div>
+                            <div class="item">
+                                <img src="{% static 'css/images/bg1.jpg' %}" alt="Second slide">
+                            </div>
+                            <div class="item">
+                                <img src="{% static 'css/images/bg1.jpg' %}" alt="Third slide">
+                            </div>
+                        </div>
+                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-5" name="memories" id="memories">
+                    {% for memory in memories %}
+                        <div>
+                            <a href="/user_stories/" style="color: black;margin-left: 10px">{{ memory.title }}</a>
+                            <div style="float: right; display: inline; margin-right: 10px">
+                                {{ memory.post_time|date:"Y-m-d H:i:s" }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <img src="{% static 'css/images/pg3-footer.jpg' %}" alt="" class="img-footer">
 
         <!-- TODO: 初赛之后做一个签到系统 -->
-        <!-- 但是可以先把图标之类的做好 -->
 
-        <div class="">
-            <form class="" action="stories" method="get">
-                <input type="submit" value="My memories" name="user_stories">
-            </form>
-            {% for memory in memories %}
-                <p>{{ memory.title }}</p>
-            {% endfor %}
-        </div>
+        <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/personal_page.js' %}"></script>
     </body>
 </html>

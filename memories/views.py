@@ -6,7 +6,6 @@ from .forms import UserForm, MemoryForm
 from django.views.decorators.csrf import csrf_protect
 from django.utils import timezone
 
-# Create your views here.
 
 @csrf_protect
 def sign_in_and_personal_page(request):
@@ -46,10 +45,11 @@ def sign_in_and_personal_page(request):
             return render(request, 'memories/personal_page.html', {"memories": memories})
 
 def stories(request):
-    if request.GET.get("user_stories") == "My memories":
-        m = Memory.objects.filter(author = request.user.username)
-    else:
-        m = Memory.objects.all()
+    m = Memory.objects.all()
+    return render(request, 'memories/stories.html', {'memories': m})
+
+def user_stories(request):
+    m = Memory.objects.filter(author = request.user.username)
     return render(request, 'memories/stories.html', {'memories': m})
 
 def post_story(request):
@@ -75,3 +75,6 @@ def sign_up(request):
                 password = form.cleaned_data['password'])
             user.save()
     return render(request, 'memories/sign_up.html')
+
+def log_out(request):
+    return render(request, 'memories/sign_in.html')

@@ -20,5 +20,6 @@ class Memory(models.Model):
     title = models.CharField(max_length=10)
     content = models.TextField()
     author = models.CharField(max_length=10, null=True)
+    post_time = models.DateTimeField(default=timezone.now, null=True)
     def post(self):
         self.save()
