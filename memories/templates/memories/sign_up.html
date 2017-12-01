@@ -12,25 +12,32 @@
         <script src="{% static "js/sign_up.js" %}"></script>
     </head>
     <body>
-        <div class="row" class="sign_up">
-            <div class="col-md-4 col-md-offset-3">
-                <!-- form 里的 input 通过 name 属性传递其内部的信息给服务器  -->
-                <form class="" action="/sign_up/" method="post">
-                    {% csrf_token %}
-                    <p class="small_title">Username</p>
-                    <input type="text" name="name" placeholder="Pick a username">
-                    <p class="small_title">Email</p>
-                    <input type="text" name="email" placeholder="You@example.com">
-                    <p class="small_title">Password</p>
-                    <input type="text" name="password" placeholder="Create a password">
-                    <p class="small_des">Use at least one letter, one numeral, and seven characters.</p>
-                    <input type="submit" value="Sign up">
-                </form>
-                <p>Already have an account?
-                    <form class="" action="/" method="get">
-                        <input type="submit" value="Sign in now">
-                    </form>
-                </p>
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="content col-md-8">
+                <div class="row sign_up">
+                    <div class="col-md-4 col-md-offset-3">
+                        <!-- form 里的 input 通过 name 属性传递其内部的信息给服务器  -->
+                        <form class="" action="/sign_up/" method="post">
+                            {% csrf_token %}
+                            <p class="small_title">Username</p>
+                            <input type="text" name="name" placeholder="Pick a username" class="input">
+                            <p class="small_title">Email</p>
+                            <input type="text" name="email" placeholder="You@example.com" class="input">
+                            <p class="small_title">Password</p>
+                            <input type="text" name="password" placeholder="Create a password" class="input">
+                            <p class="small_des">Use at least one letter, one numeral, and seven characters.</p>
+                            <input type="submit" value="Sign up" class="sign-in-now">
+                        </form>
+                        <p>Already have an account?
+                            <form class="" action="/" method="get">
+                                <input type="submit" value="Sign in now" class="sign-in-now">
+                            </form>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

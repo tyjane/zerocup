@@ -77,4 +77,5 @@ def sign_up(request):
     return render(request, 'memories/sign_up.html')
 
 def log_out(request):
+    logout(request)
     return render(request, 'memories/sign_in.html')
