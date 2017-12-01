@@ -3,28 +3,62 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Post your memory</title>
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/bootstrap-theme.min.css' %}" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/post_story.css' %}">
         <script src="{% static "js/post_story.js" %}"></script>
     </head>
-    <body>
-        <p>post story</p>
+    <body>   
+        <!-- 导航栏 -->
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Post my story</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/post_story/">Post my story</a></li>
+                        <li><a href="/stories/">View the stories</a></li>
+                        <li><a href="/user_stories/">My memories</a></li>
+                        <li><a href="/log_out/">Log out</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        
+       <img src="{% static 'css/images/title.jpg' %}" alt="" class="img-title">
 
-        <form action="/post_story/" method="post">
-            {% csrf_token %}
-            <ul>
-                <li>Title</li>
-                <input type="text" placeholder="Your name" name="title">
-                <li>Your memory</li>
-                <br/>
-                <textarea name="content" rows="8" cols="70"></textarea>
-                <input type="text" name="author" value= {{ author }} style="display: none">
-            </ul>
-            <input type="submit" class="b_button" value="Post">
-        </form>
+       <div class="main-content bgi">
+           <div class="row"> 
+               <div class="col-md-4 col-md-offset-3 col-sm-4 col-sm-offset-3">
+                   <form action="/post_story/" method="post">
+                   {% csrf_token %}
+                   <ul>
+                       <li class="color-white font-size mar" style="list-style-type: none" >Title</li>
+                       <input type="text" placeholder="Title" name="title">
+                       <li class="color-white font-size mar" style="list-style-type: none">Your memory</li>
+                       <textarea name="content" rows="10" cols="70"></textarea>
+                       <input type="text" name="author" value= {{ author }} style="display: none">
+                   </ul>
+                   <input type="submit" class="b_button btn btn-lg btn-primary" value="Post">
+                   </form>
+                   <form action="/" method="get"> 
+                   <p><input type="submit" class="b_button btn btn-lg btn-primary" value="Back to your page"></p>
+                   </form> 
+                </div>
+            </div>
+        </div> 
+        
+        <img src="{% static 'css/images/pg3-footer.jpg' %}" alt="" class="img-footer">
 
-        <form action="/" method="get">
-            <p><input type="submit" class="b_button" value="Back to your page"></p>
-        </form>
     </body>
 </html>
