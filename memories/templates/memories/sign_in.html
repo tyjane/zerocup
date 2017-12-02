@@ -5,40 +5,40 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sign in</title>
+        <title>Sign up</title>
         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
         <link href="{% static 'css/bootstrap-theme.min.css' %}" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'css/sign_in.css' %}">
-        <script src="{% static 'js/sign_in.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/sign_up.css' %}">
+        <script src="{% static "js/sign_up.js" %}"></script>
     </head>
     <body>
-        <div id="main_content">
-            <div id="main_left">
-                <h1 id="main_title">我有一壶酒， <br> 足以慰风尘。</h1>
-                <p id="main_page">这一路上，<br>我们走走停停，<br>看不同的风景，<br>赏不同的人。<br>现在，<br>我有酒，<br>你有故事吗？</p>
-            </div>
-            <div id="main_right">
-                <p>{{ msg }}</p>
-                <form action="/" method="post">
-                    {% csrf_token %}
-                    <p class="small_title">Username</p>
-                    <input type="text" name="name" id="input">
-                    <p class="small_title">Password</p>
-                    <input type="password" name="password" id="input">
+        <div class="row">
+            <div class="col-md-2">
 
-                    <!-- 这个 email 的 input 页面上不可见，只是为了后台的 -->
-                    <input type="text" name="email" value="For hacking the form" style="display: none">
-                    <p><input type="submit" class="b_button" value="Sign in."></p>
-                </form>
-                <div style="font-family: Calibri">
-                    Have no account now?
+            </div>
+            <div class="content col-md-8">
+                <div class="row sign_up">
+                    <div class="col-md-4 col-md-offset-3">
+                        <!-- form 里的 input 通过 name 属性传递其内部的信息给服务器  -->
+                        <form class="" action="/sign_up/" method="post">
+                            {% csrf_token %}
+                            <p class="small_title">Username</p>
+                            <input type="text" name="name" placeholder="Pick a username" class="input">
+                            <p class="small_title">Email</p>
+                            <input type="text" name="email" placeholder="You@example.com" class="input">
+                            <p class="small_title">Password</p>
+                            <input type="text" name="password" placeholder="Create a password" class="input">
+                            <p class="small_des">Use at least one letter, one numeral, and seven characters.</p>
+                            <input type="submit" value="Sign up" class="sign-in-now">
+                        </form>
+                        <p>Already have an account?
+                            <form class="" action="/" method="get">
+                                <input type="submit" value="Sign in now" class="sign-in-now">
+                            </form>
+                        </p>
+                    </div>
                 </div>
-                <form action="/sign_up/" method="get">
-                    <input type="submit" value="Sign up." class="b_button">
-                </form>
             </div>
         </div>
-        <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-        <script src="{% static 'js/bootstrap.min.js' %}"></script>
     </body>
 </html>
