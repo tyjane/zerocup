@@ -22,16 +22,15 @@
                 </div>
                 <div class="top-right col-md-6">
                     <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 text1">
-                    <p>{{ msg }}</p>
+                    <p class="color-gray">{{ msg }}</p>
                     <form action="/" method="post">
                         {% csrf_token %}
                         <p class="color-gray">Username</p>
                         <input type="text" name="name" id="input">
                         <p class="color-gray">Password</p>
                         <input type="password" name="password" id="input">
-
-                        <!-- 这个 email 的 input 页面上不可见，只是为了后台的 -->
                         <input type="text" name="email" value="For hacking the form" style="display: none">
+                        <input type="text" name="introduction" value="For hacking the form" style="display: none">
                         <p><input type="submit" class="btn btn-lg btn-success button" value="Sign in."></p>
                     </form>
                     <div class="color-gray" style="font-family: Calibri">
@@ -44,12 +43,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="content2">
-            <div class="text2 col-md-6 col-sm-offset-2">
-            <h1 class="title">我有一壶酒， <br> 足以慰风尘。</h1>
-            <p class="page">这一路上，<br>我们走走停停，<br>看不同的风景，<br>赏不同的人。<br>现在，<br>我有酒，<br>你有故事吗？</p>
-            </div>
-        </div> -->
         <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
     </body>

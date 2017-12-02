@@ -16,6 +16,10 @@ from django.utils import timezone
 #         else:
 #             sign_in_times = 0
 
+class MyUser(User):
+    introduction = models.TextField()
+
+
 class Memory(models.Model):
     title = models.CharField(max_length=10)
     content = models.TextField()

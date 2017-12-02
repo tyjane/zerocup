@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
+from .models import MyUser
 from django.contrib.auth import authenticate, login, logout
 from .models import Memory
 from .forms import UserForm, MemoryForm
@@ -12,10 +13,11 @@ def sign_in_and_personal_page(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
         if not form.is_valid():
+            print("form is not valid")
             inputedData = {}
             inputedData["name"] = request.POST.get("name", "")
             inputedData["password"] = request.POST.get("password", "")
-            return render(request, 'memories/sign_in.html', {'inputedData': inputed})
+            return render(request, 'memories/sign_in.html', {'input': inputedData})
         else:
             user = authenticate(\
                 username=form.cleaned_data["name"],\
@@ -42,7 +44,8 @@ def sign_in_and_personal_page(request):
             return render(request, 'memories/sign_in.html')
         else:
             memories = Memory.objects.filter(author = request.user.username)
-            return render(request, 'memories/personal_page.html', {"memories": memories})
+            user = MyUser.objects.get(username = request.user.username)
+            return render(request, 'memories/personal_page.html', {"memories": memories, "user": user})
 
 def stories(request):
     m = Memory.objects.all()
@@ -70,10 +73,11 @@ def sign_up(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
-            user = User.objects.create_user(\
+            user = MyUser.objects.create_user(\
                 username = form.cleaned_data['name'],\
                 email = form.cleaned_data['email'],\
-                password = form.cleaned_data['password'])
+                password = form.cleaned_data['password'],\
+                introduction = form.cleaned_data['introduction'])
             user.save()
     return render(request, 'memories/sign_up.html')
 
