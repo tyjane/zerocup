@@ -9,3 +9,13 @@ for (var i = 0; i < memories.length; i++) {
         (memories[i].style).backgroundColor = 'grey'
     }
 }
+var intro = document.getElementById('intro').innerHTML
+var newintro = ''
+for (var j = 0; j < intro.length; j++) {
+    if (intro.charAt(j) == '\n') {
+        newintro += '<br>'
+    } else {
+        newintro += intro.charAt(j)
+    }
+}
+document.getElementById('intro').innerHTML = newintro
