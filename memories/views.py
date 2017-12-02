@@ -29,7 +29,8 @@ def sign_in_and_personal_page(request):
                     isUserExist = True
             if isUserExist:
                 memories = Memory.objects.filter(author = request.user.username)
-                return render(request, 'memories/personal_page.html', {"memories": memories})
+                user = MyUser.objects.get(username = request.user.username)
+                return render(request, 'memories/personal_page.html', {"memories": memories, "user": user})
             else:
                 error = {"msg": "The name or password is incorrect."}
                 return render(request, 'memories/sign_in.html', error)
