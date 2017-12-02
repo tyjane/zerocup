@@ -56,6 +56,7 @@ def post_story(request):
     if request.method == 'POST':
         form = MemoryForm(request.POST)
         if form.is_valid():
+            print("form is valid")
             m = Memory.objects.create(\
                 title = form.cleaned_data['title'],\
                 content = form.cleaned_data['content'],\
