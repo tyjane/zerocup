@@ -53,5 +53,15 @@
 }
 
 .date {
-    float:right;display:inline;margin-right:10px;
+    float: right;
+    display: inline;
+    margin-right: 10px;
+}
+
+.title {
+    margin-left: 10px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: black;
+    display: inline;
 }

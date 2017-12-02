@@ -79,3 +79,7 @@ def sign_up(request):
 def log_out(request):
     logout(request)
     return render(request, 'memories/sign_in.html')
+
+def story(request):
+    m = Memory.objects.filter(title = request.GET.get("title"))
+    return render(request, 'memories/stories.html', {'memories': m})
