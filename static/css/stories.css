@@ -1,0 +1,34 @@
+.img-title {
+    margin-top: -22px;
+    width: 100%;
+    height: 100%;
+}
+
+.bgi {
+    background-image: url('images/bg3.jpg');
+    width: 100%;
+    height: 100%;
+    margin-top: -8%;
+}
+
+.white * {
+    color: white;
+}
+
+.img-footer {
+    margin-top: -10px;
+    width: 100%;
+    height: 100%;
+}
+
+.b_button {
+    height: 40px;
+    font-weight: bold;
+    font-family: Calibri;
+    padding-top: 8px;
+    width: 250px;
+    font-family: Calibri;
+    border-radius: 5px;
+    border-color: rgba(0, 0, 0, 0.25);
+    margin: 10px 0px -15px 0px;
+}

@@ -1,4 +1,8 @@
+var log = function() {
+    // console.log.bind(console)
+}
 var memories = document.getElementById('memories').childNodes
+log("memories", memories)
 for (var i = 0; i < memories.length; i++) {
     if (i % 2 == 0) {
         continue;
@@ -9,13 +13,15 @@ for (var i = 0; i < memories.length; i++) {
         (memories[i].style).backgroundColor = 'grey'
     }
 }
+log("memories", memories)
 var intro = document.getElementById('intro').innerHTML
-var newintro = ''
+log("intro", intro)
+var newIntro = ''
 for (var j = 0; j < intro.length; j++) {
     if (intro.charAt(j) == '\n') {
-        newintro += '<br>'
+        newIntro += '<br>'
     } else {
-        newintro += intro.charAt(j)
+        newIntro += intro.charAt(j)
     }
 }
-document.getElementById('intro').innerHTML = newintro
+document.getElementById('intro').innerHTML = newIntro
