@@ -1,5 +1,5 @@
 var log = function() {
-    // console.log.bind(console)
+     console.log.bind(console)
 }
 var memories = document.getElementById('memories').childNodes
 log("memories", memories)
@@ -13,9 +13,9 @@ for (var i = 0; i < memories.length; i++) {
         (memories[i].style).backgroundColor = 'grey'
     }
 }
-log("memories", memories)
+// log("memories", memories)
 var intro = document.getElementById('intro').innerHTML
-log("intro", intro)
+// log("intro", intro)
 var newIntro = ''
 for (var j = 0; j < intro.length; j++) {
     if (intro.charAt(j) == '\n') {
@@ -25,3 +25,10 @@ for (var j = 0; j < intro.length; j++) {
     }
 }
 document.getElementById('intro').innerHTML = newIntro
+
+canvas = document.getElementById("canvas")
+context = canvas.getContext("2d")
+
+img = new Image()
+img.src = "/static/css/images/calendar.png"
+context.drawImage(img, 0, 0)
